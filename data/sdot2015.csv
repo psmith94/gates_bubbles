@@ -1,0 +1,48 @@
+asset,inventory,replacement_value,data_confidence,good,fair,poor,unknown,asset_class,id
+Bicycle Racks,"3,301",2.20,High,97.8%,1.2%,0.5%,0.5%,BIKE & PEDESTRIAN SYSTEM,1
+Kiosk,150 (e),1.10,Low,,,,100.0%,BIKE & PEDESTRIAN SYSTEM,2
+Marked Crosswalks,"5,357",5.40,Medium-High,53.4%,16.7%,29.6%,<1%,BIKE & PEDESTRIAN SYSTEM,3
+Sidewalks,"33,373 block faces",5280.00,Medium,23.9%,5.6%,1.0%,69.6%,BIKE & PEDESTRIAN SYSTEM,4
+Stairways,509,63.60,Medium-High,61.0%,28.0%,11.0%,,BIKE & PEDESTRIAN SYSTEM,5
+Street Furnishings,Unknown,0,Low,,,,100.0%,BIKE & PEDESTRIAN SYSTEM,6
+Trails,40.2 lane miles,96.30,Medium-Low,,,,100.0%,BIKE & PEDESTRIAN SYSTEM,7
+Air Raid Siren Tower,1,0.50,High,100.0%,,,N/A,BRIDGES & STRUCTURES,8
+Areaway Street Walls,236,218.00,Low,11.0%,58.0%,12.0%,19.0%,BRIDGES & STRUCTURES,9
+Bridges,117,4112.00,High,31.0%,52.0%,17.0%,0.0%,BRIDGES & STRUCTURES,10
+Bridge Hydrant Vaults,13,0.65,High,100.0%,,,,BRIDGES & STRUCTURES,11
+Elevator,1,1.50,High,100.0%,,,,BRIDGES & STRUCTURES,12
+Retaining Walls,582,903.10,Medium,42.0%,36.0%,19.0%,3.0%,BRIDGES & STRUCTURES,13
+Tunnel,1,0.74,High,,100.0%,,,BRIDGES & STRUCTURES,14
+Pavement Markings,"2,022",4.90,Medium,,,,100.0%,CHANNELIZATION,15
+Beacons,391,5.90,Medium,32.5%,6.6%,1.0%,59.8%,INTELLIGENT TRANSPORTATION SYSTEM ,16
+Bluetooth Readers,Service,0.00,,,,,,INTELLIGENT TRANSPORTATION SYSTEM ,17
+Cameras,257,2.60,Medium,52.%5,,,47.5%,INTELLIGENT TRANSPORTATION SYSTEM ,18
+Communications Network,150 miles (e),75.00,Low,,,,100.0%,INTELLIGENT TRANSPORTATION SYSTEM ,19
+Counters,13,3.00,Medium-High,,,,,INTELLIGENT TRANSPORTATION SYSTEM ,20
+Dynamic Message Signs,51,9.70,Medium-High,100.0%,,,,INTELLIGENT TRANSPORTATION SYSTEM ,21
+Network Hubs,14,0.90,Medium-High,,,,100.0%,INTELLIGENT TRANSPORTATION SYSTEM ,22
+Radar Speed Signs,43,0.43,Medium,53.5%,,,46.5%,INTELLIGENT TRANSPORTATION SYSTEM ,23
+Transportation Operations Center,1,1.00,High,100.0%,,,,INTELLIGENT TRANSPORTATION SYSTEM ,24
+Traffic Signal Assemblies,1071,281.10,Medium-High,12.0%,51.0%,35.0%,2.0%,INTELLIGENT TRANSPORTATION SYSTEM ,25
+Pay Stations,"2,022",20.00,High,100.0%,,,,PARKING PAYMENT DEVICES,26
+Arterial Streets,"1,547 lane miles",4678.00,High,46.5%,17.8%,35.7%,,PAYMENT SYSTEM,27
+Non-arterial Streets,"2,407 lane miles",3884.00,Medium,59.9%,11.5%,13.6%,15.5%,PAYMENT SYSTEM,28
+Buildings & Yards,15,80.50,Medium-High,40.0%,40.0%,20.0%,,REAL PROPERTY,29
+Parcels,57,0,Medium-High,,,,100.0%,REAL PROPERTY,30
+Shoreline Street Ends (ROW),143(e),0,Medium-High,,,,100.0%,REAL PROPERTY,31
+Sign Assemblies,"181,431",66.80,Medium,39.5%,<0.01%,<0.01%,60.5%,SIGNS,32
+Chicanes,22,0.66,Low,,,,100.0%,TRAFFIC SAFETY STRUCTURES & DEVICES,33
+Crash Cushions,40,0.78,Medium,82.5%,7.7%,5.1%,5.1%,TRAFFIC SAFETY STRUCTURES & DEVICES,34
+Guardrails,"75,000 LF, 772 units",7.50,Medium-Low,50.9%,44.6%,0.3%,4.3%,TRAFFIC SAFETY STRUCTURES & DEVICES,35
+Median Islands,500 (e),0,Low,,,,100.0%,TRAFFIC SAFETY STRUCTURES & DEVICES,36
+Speed Cushions,25 (e),0.31,Low,,,,100.0%,TRAFFIC SAFETY STRUCTURES & DEVICES,37
+Speed Dots,3,0.02,Low,,,,100.0%,TRAFFIC SAFETY STRUCTURES & DEVICES,38
+Speed Humps,100 (e),0.50,Low,,,,100.0%,TRAFFIC SAFETY STRUCTURES & DEVICES,39
+Traffic Circles,"1,056",21.10,Medium-High,94.7%,3.8%,0.2%,,,40
+Historic Transit Shelters,2,0.22,High,100.0%,,,,TRANSIT,41
+Real Time Transit Information Signs,13,2.30,Medium-High,100.0%,,,,TRANSIT,42
+Streetcar System,2 Lines,103.00,High,100.0%,,,,TRANSIT,43
+Transit Loading Platforms,6(e),0.70,Low,,,,100.0%,TRANSIT,44
+Irrigation,131,0,Low,,,,100.0%,URBAN FOREST,45
+Landscaped Areas,"5,371k SF, 218 units",37.50,Medium,15.4%,6.3%,0.9%,77.4%,URBAN FOREST,46
+Trees,"41,000 (e)",69.70,Medium,75.0%,17.0%,5.0%,3.0%,URBAN FOREST,47

@@ -21,6 +21,11 @@
       this.width = 940;
       this.height = 600;
       this.tooltip = CustomTooltip("gates_tooltip", 240);
+      
+      // locations the nodes will move towards
+      // depending on which view is currently being
+      // used
+      
       this.center = {
         x: this.width / 2,
         y: this.height / 2
@@ -39,13 +44,26 @@
           y: this.height / 2
         }
       };
+
+      // used when setting up force and
+      // moving around nodes
+
       this.layout_gravity = -0.01;
       this.damper = 0.1;
+      
+      // these will be set in create_nodes and create_vis
+      
       this.vis = null;
       this.nodes = [];
       this.force = null;
       this.circles = null;
+      
+      // nice looking colors - no reason to buck the trend
+      
       this.fill_color = d3.scale.ordinal().domain(["low", "medium", "high"]).range(["#d84b2a", "#beccae", "#7aa25c"]);
+      
+      // use the max total_amount in the data as the max in the scale's domain
+
       max_amount = d3.max(this.data, function(d) {
         return parseInt(d.total_amount);
       });
@@ -53,6 +71,13 @@
       this.create_nodes();
       this.create_vis();
     }
+
+    // create node objects from original data
+    // that will serve as the data behind each
+    // bubble in the vis, then add each node
+    // to @nodes to be used later
+
+    var max_rad = 0;
 
     BubbleChart.prototype.create_nodes = function() {
       this.data.forEach((function(_this) {
@@ -69,13 +94,22 @@
             x: Math.random() * 900,
             y: Math.random() * 800
           };
+
+          if (node.radius > max_rad) {
+            max_rad = node.radius;
+          }
           return _this.nodes.push(node);
         };
       })(this));
+      console.log(max_rad);
+
       return this.nodes.sort(function(a, b) {
         return b.value - a.value;
       });
     };
+    console.log(max_rad);
+    // create svg at #vis and then 
+    // create circle representation for each node
 
     BubbleChart.prototype.create_vis = function() {
       var that;
@@ -83,7 +117,15 @@
       this.circles = this.vis.selectAll("circle").data(this.nodes, function(d) {
         return d.id;
       });
+
+      // used because we need 'this' in the 
+      // mouse callbacks
+
       that = this;
+
+      // radius will be set to 0 initially.
+      // see transition below
+
       this.circles.enter().append("circle").attr("r", 0).attr("fill", (function(_this) {
         return function(d) {
           return _this.fill_color(d.group);
@@ -99,18 +141,38 @@
       }).on("mouseout", function(d, i) {
         return that.hide_details(d, i, this);
       });
+
+      // Fancy transition to make bubbles appear, ending with the
+      // correct radius
+
       return this.circles.transition().duration(2000).attr("r", function(d) {
         return d.radius;
       });
     };
 
+    // Charge function that is called for each node.
+    // Charge is proportional to the diameter of the
+    // circle (which is stored in the radius attribute
+    // of the circle's associated data.
+    // This is done to allow for accurate collision 
+    // detection with nodes of different sizes.
+    // Charge is negative because we want nodes to 
+    // repel.
+    // Dividing by 8 scales down the charge to be
+    // appropriate for the visualization dimensions.
+
     BubbleChart.prototype.charge = function(d) {
       return -Math.pow(d.radius, 2.0) / 8;
     };
 
+    // Starts up the force layout with
+    // the default values
     BubbleChart.prototype.start = function() {
       return this.force = d3.layout.force().nodes(this.nodes).size([this.width, this.height]);
     };
+
+    // Sets up force layout to display
+    // all nodes in one circle.
 
     BubbleChart.prototype.display_group_all = function() {
       this.force.gravity(this.layout_gravity).charge(this.charge).friction(0.9).on("tick", (function(_this) {
@@ -126,6 +188,9 @@
       return this.hide_years();
     };
 
+    // Moves all circles towards the @center
+    // of the visualization
+
     BubbleChart.prototype.move_towards_center = function(alpha) {
       return (function(_this) {
         return function(d) {
@@ -134,6 +199,9 @@
         };
       })(this);
     };
+
+    // sets the display of bubbles to be separated
+    // into each year. Does this by calling move_towards_year
 
     BubbleChart.prototype.display_by_year = function() {
       this.force.gravity(this.layout_gravity).charge(this.charge).friction(0.9).on("tick", (function(_this) {
@@ -149,6 +217,8 @@
       return this.display_years();
     };
 
+    // move all circles to their associated @year_centers 
+
     BubbleChart.prototype.move_towards_year = function(alpha) {
       return (function(_this) {
         return function(d) {
@@ -159,6 +229,8 @@
         };
       })(this);
     };
+
+    // Method to display year titles
 
     BubbleChart.prototype.display_years = function() {
       var years, years_data, years_x;
@@ -177,6 +249,8 @@
         return d;
       });
     };
+
+    // Method to hide year titiles
 
     BubbleChart.prototype.hide_years = function() {
       var years;
